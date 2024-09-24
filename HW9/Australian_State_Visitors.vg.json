@@ -1,1 +1,54 @@
-
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "title": "Visitors per 1000 people in Australian States",
+    "projection": {
+      "type": "mercator"
+    },
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/HW9/gadm41_AUS_1.json",
+          "format": {
+            "type": "topojson",
+            "feature": "georef-australia-state-millesime" 
+          }
+        },
+        "mark": {
+          "type": "geoshape",
+          "stroke": "black",
+          "strokeWidth": 1
+        },
+        "encoding": {
+          "color": {
+            "field": "Num_Visitors_per_1000_people",
+            "type": "quantitative",
+            "scale": {
+              "scheme": "blues"
+            },
+            "legend": {
+              "title": "Visitors per 1000 people"
+            }
+          },
+          "tooltip": [
+            {"field": "properties.ste_name", "type": "nominal", "title": "State"},
+            {"field": "Num_Visitors_per_1000_people", "type": "quantitative", "title": "Visitors per 1,000 people"}
+          ]
+        },
+        "transform": [
+          {
+            "lookup": "properties.ste_name",
+            "from": {
+              "data": {
+                "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/HW9/normallised_visitors-each-state.csv",
+                "format": {"type": "csv"}
+              },
+              "key": "State",
+              "fields": ["Num_Visitors_per_1000_people"]
+            }
+          }
+        ]
+      }
+    ]
+}
