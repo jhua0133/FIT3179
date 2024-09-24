@@ -9,7 +9,7 @@
     "layer": [
       {
         "data": {
-          "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/HW9/gadm41_AUS_1.json",
+          "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/gadm41_AUS_1.json",
           "format": {
             "type": "topojson",
             "feature": "georef-australia-state-millesime"
@@ -41,7 +41,7 @@
             "lookup": "properties.ste_iso3166",
             "from": {
               "data": {
-                "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/HW9/normallised_visitors-each-state.csv",
+                "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/normallised_visitors-each-state.csv",
                 "format": {"type": "csv"}
               },
               "key": "State",
