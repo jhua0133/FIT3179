@@ -9,7 +9,7 @@
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/gadm41_AUS_1.json",
+        "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/gadm41_AUS_1.topojson",
         "format": {
           "type": "topojson",
           "feature": "georef-australia-state-millesime"
@@ -52,7 +52,7 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/ne_110m_graticules_20.json",
+        "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/ne_110m_graticules_20.topojson",
         "format": {
           "type": "topojson",
           "feature": "graticule"
@@ -66,7 +66,7 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/ne_110m_ocean.json",
+        "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/ne_110m_ocean.topojson",
         "format": {
           "type": "topojson",
           "feature": "ne_110m_ocean"
