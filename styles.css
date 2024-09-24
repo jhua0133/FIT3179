@@ -1,5 +1,5 @@
-<style>
-  body, html {
+
+body, html {
     height: 100%;
     margin: 0;
     display: flex;
@@ -11,5 +11,5 @@
   #choropleth_map {
     margin: 0 auto; 
   }
-</style>
+
 
