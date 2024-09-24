@@ -1,9 +1,9 @@
-STATE_NAME,Num_Visitors_per_1000_people
-New South Wales,27.32
-Victoria,28.54
-Queensland,20.71
-South Australia,19.89
-Western Australia,25.45
-Tasmania,12.50
-Northern Territory,25.06
-Australian Capital Territory,28.80
+State,Num_Visitors_per_1000_people
+NSW,27.32
+VIC,28.54
+QLD,20.71
+SA,19.89
+WA,25.45
+TA,12.50
+NT,25.06
+ACT,28.80
