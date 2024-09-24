@@ -1,29 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+  
+  <!-- CSS file -->
+  <!-- link rel="stylesheet" type="text/css" href="css/styles.css" media="all"-->
+
+
 </head>
 <body>
-       <h1>This is highest Heading</h1>
-        <h2>asdfas</h2> 
+  
+<div id="choropleth_map"></div>
+<p>Above contains a graph showing the visitors to each state per 1000 population of the state</p>
+<script type="text/javascript">
 
-        <p>emmet cheat sheet</p>
-        <p>asirfgbaosfbagklrabglerkhbglahkerlbagherbasr</p>
-        <table border="1"> 
-            <tr>
-                <th>table heading</th>
-                <th>name</th>
-                <th>contact</th>
-            </tr>
-            <TR>
-                <td>123</td>
-                <td>123</td>
-                <td>123</td>
-            </TR>
+  var choropleth = "Australian_State_Visitors.vg.json";
+  vegaEmbed('#choropleth_map', choropleth).then(function(result) {
+  }).catch(console.error);
+</script>
 
-        </table>
-        <img src="image source infolder" alt="VSCODE LOGO">
 </body>
 </html>
