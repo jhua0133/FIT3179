@@ -69,7 +69,7 @@
         "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/ne_110m_ocean.json",
         "format": {
           "type": "topojson",
-          "feature": "ocean"
+          "feature": "ne_110m_ocean"
         }
       },
       "mark": {
