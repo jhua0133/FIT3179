@@ -55,13 +55,26 @@
         "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/ne_110m_graticules_20.json",
         "format": {
           "type": "topojson",
-          "feature": "ne_110m_graticules_20"
+          "feature": "graticule"
         }
       },
       "mark": {
         "type": "geoshape",
         "stroke": "gray",
         "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-9/ne_110m_ocean.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ocean"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightblue"
       }
     }
   ]
