@@ -6,7 +6,6 @@
   "projection": {"type": "mercator","scale": 750,
     "center": [133.5, -28]},
 
-
   "layer": [
     {
       "data": {
