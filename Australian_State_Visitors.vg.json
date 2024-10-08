@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
+  "width": 800,
   "height": 600,
   "title": "Visitors per 1000 people in Australian States",
   "projection": {"type": "mercator","scale": 750,
