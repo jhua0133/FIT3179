@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
-  "height": 400,
-  "title": "Visitors by Top 5 Countries Over Time",
+  "width": "container",
+  "height": "container",
+  
   "data": {
     "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-10/aus_visitors_by_country.csv",
     "format": {"type": "csv"}
@@ -59,7 +59,7 @@
       ],
       "selection": {
         "CountrySelect": {
-          "type": "single",
+          "type": "multi",
           "fields": ["Country"],
           "bind": {
             "input": "select",
@@ -72,7 +72,8 @@
               "UK",
               "Japan"
             ],
-            "name": "Select Country: "
+            "name": "Select Country: ",
+            "multiple": true 
           }
         }
       }
@@ -81,10 +82,11 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 15,
+        "dx": 30,
         "dy": -15,
-        "fontSize": 11,
-        "fontStyle": "Italic",
+        "fontSize": 13,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
         "color": "hotpink"
       },
       "encoding": {
