@@ -1,0 +1,26 @@
+Country,Variable,Value
+China,Repeat Visitors,20
+New Zealand,Repeat Visitors,30
+USA,Repeat Visitors,25
+UK,Repeat Visitors,22
+Japan,Repeat Visitors,18   
+China,Visitors for Leisure,70
+New Zealand,Visitors for Leisure,80
+USA,Visitors for Leisure,60
+UK,Visitors for Leisure,65
+Japan,Visitors for Leisure,75
+China,Visitors for Business,20
+New Zealand,Visitors for Business,10
+USA,Visitors for Business,30
+UK,Visitors for Business,25
+Japan,Visitors for Business,15
+China,Short term Visitors,35
+New Zealand,Short term Visitors,45
+USA,Short term Visitors,55
+UK,Short term Visitors,50
+Japan,Short term Visitors,65
+China,Long term Visitors,65
+New Zealand,Long term Visitors,55
+USA,Long term Visitors,45
+UK,Long term Visitors,50
+Japan,Long term Visitors,35
