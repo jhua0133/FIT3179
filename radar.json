@@ -39,7 +39,7 @@
     ],
     "data": [
         {
-            "url": "Charts/Covid-Radar-Data.csv",
+            "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/main/AUS-Radar-Data.csv",
             "name": "data",
             "format": {
                 "type": "csv"
