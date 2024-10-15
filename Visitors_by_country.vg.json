@@ -4,7 +4,7 @@
   "height": "container",
   
   "data": {
-    "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/HW-week-10/aus_visitors_by_country.csv",
+    "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/main/aus_visitors_by_country.csv",
     "format": {"type": "csv"}
   },
   "transform": [
