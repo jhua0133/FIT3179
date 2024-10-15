@@ -23,7 +23,7 @@
     
 
     "data": {
-        "url": "Charts/Covid-Live-stackedbar.csv"
+        "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/main/AUS-stackedbar-year.csv"
     },
     "transform": [
         {
