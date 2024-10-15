@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": "container",
-  
+  "background": "#E9F7E9",
   "data": {
     "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/main/aus_visitors_by_country.csv",
     "format": {"type": "csv"}
