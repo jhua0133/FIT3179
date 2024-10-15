@@ -35,7 +35,7 @@
         "color": {
           "field": "Num_Visitors_per_1000_people",
           "type": "quantitative",
-          "scale": {"scheme": "blues"},
+          "scale": {"scheme": "greens"},
           "legend": {"title": "Visitors per 1000 people"}
         },
         "tooltip": [
