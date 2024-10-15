@@ -3,7 +3,6 @@
     "width": "container",
     "height": "container",
     "background": "#E9F7E9",
-    
     "config": {
         "font": "Cabin",
         "legend": {
@@ -20,8 +19,6 @@
             }
         }
     },
-    
-
     "data": {
         "url": "https://raw.githubusercontent.com/jhua0133/FIT3179/refs/heads/main/AUS-stackedbar-year.csv"
     },
@@ -38,13 +35,9 @@
                 "State"
             ]
         }
-        
     ],
-    
- 
     "layer": [
         {
-            
             "mark": {
                 "type": "bar",
                 "cornerRadiusTopRight": 15,
@@ -57,7 +50,7 @@
                     "title": "State",
                     "sort": [
                         "NSW", "VIC", "QLD", "WA", "SA", "NT", "TAS", "ACT"
-                      ],
+                    ],
                     "axis": {
                         "labelAngle": 0,
                         "grid": false
@@ -71,7 +64,6 @@
                         "grid": false
                     }
                 },
-                
                 "color": {
                     "field": "Year",
                     "type": "nominal",
@@ -79,24 +71,18 @@
                         "domain": [
                             "2008-09",
                             "2018-19"
-                            
                         ],
                         "range": [
-                            
                             "#8DD3C7",
-                            
                             "#4294C7"
-                            
                         ]
                     },
                     "title": "Year"
                 },
-                
                 "order": {
                     "field": "SortOrder",
                     "type": "quantitative"
                 },
-                
                 "tooltip": [
                     {
                         "field": "State",
@@ -115,10 +101,8 @@
                         "format": ",.1f"
                     }
                 ]
-                
             }
         },
-            
         {
             "mark": {
                 "type": "text",
@@ -130,7 +114,7 @@
                     "type": "nominal",
                     "sort": [
                         "NSW", "VIC", "QLD", "WA", "SA", "NT", "TAS", "ACT"
-                      ]
+                    ]
                 },
                 "y": {
                     "aggregate": "sum",
@@ -148,6 +132,58 @@
                 "yOffset": {
                     "value": -6.5
                 }
+            }
+        },
+        
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 10,
+                "dy": -10,
+                "color": "black",
+                "fontSize": 14,
+                "fontWeight": "normal"
+            },
+            "encoding": {
+                "x": {"datum": "VIC", "type": "nominal"},
+                "y": {"datum": 5.5, "type": "quantitative"},
+                "text": {"value": "In 2008-9, more people visited QLD compared to VIC"}
+            }
+        },
+        {
+            "mark": "rule",
+            "encoding": {
+                "x": {"datum": "VIC", "type": "nominal"},
+                "y": {"datum": 3.7, "type": "quantitative"},
+                "y2": {"datum": 5.5, "type": "quantitative"}, 
+                "color": {"value": "black"}
+            }
+        },
+      
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 10,
+                "dy": -10,
+                "color": "black",
+                "fontSize": 14,
+                "fontWeight": "normal"
+            },
+            "encoding": {
+                "x": {"datum": "QLD", "type": "nominal"},
+                "y": {"datum": 4.9, "type": "quantitative"},
+                "text": {"value": "However, in 2018-19 more people visted VIC compared to QLD"}
+            }
+        },
+        {
+            "mark": "rule",
+            "encoding": {
+                "x": {"datum": "QLD", "type": "nominal"},
+                "y": {"datum": 3.7, "type": "quantitative"},
+                "y2": {"datum": 5, "type": "quantitative"}, 
+                "color": {"value": "black"}
             }
         }
     ]
