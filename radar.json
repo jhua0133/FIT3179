@@ -1,0 +1,228 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "width": 620,
+    "height": 620,
+    "padding": {"left": 120, "right": 120, "top": 120, "bottom": 120},
+    "autosize": {
+        "type": "none",
+        "contains": "padding"
+    },
+    "background": "#E9F7E9",
+    "config": {
+        "font": "Cabin"
+    },
+    "params": [{
+    "name": "CountrySelect",
+    "select": {"type": "point", "fields": ["Country"]},
+    "bind": "legend"
+}],
+  
+    "legends": [
+        {
+            "fill": "color",
+            "labelFont": "Cabin",
+            "titleFont": "Cabin","labelFontSize": 16,
+            "titleFontSize": 18,
+            "orient": "right",
+            "offset": -200,
+            "padding": 5,
+            "title": "Country",
+            "encode": {
+                "symbols": {
+                    "update": {
+                        "shape": {"value": "circle"},
+                        "size": {"value": 100}
+                    }
+                }
+            }
+        }
+    ],
+    "data": [
+        {
+            "url": "Charts/Covid-Radar-Data.csv",
+            "name": "data",
+            "format": {
+                "type": "csv"
+            }
+            
+        }
+    ],
+    
+    
+    "scales": [
+        {
+            "name": "angular",
+            "type": "point",
+            "range": {
+                "signal": "[PI/2, 5*PI/2]"
+            },
+            "padding": 0.5,
+            "domain": {
+                "data": "data",
+                "field": "Variable"
+            }
+        },
+        {
+            "name": "radial",
+            "type": "linear",
+            "range": {
+                "signal": "[0, width/2]"
+            },
+            "zero": true,
+            "nice": false,
+            "domain": {
+                "data": "data",
+                "field": "Value"
+            },
+            "domainMin": 0,
+            "domainMax": 100
+        },
+        {
+            "name": "color",
+            "type": "ordinal",
+            "domain": {
+                "data": "data",
+                "field": "Country"
+            },
+            "range": [
+                "#377EB8",
+                "#4DAF4A",
+                "#984EA3",
+                "#FF7F00",
+                "#00CED1"
+            ]
+        }
+    ],
+    "encode": {
+        "enter": {
+            "x": {
+                "signal": "width/2"
+            },
+            "y": {
+                "signal": "height/2"
+            }
+        }
+    },
+    "marks": [
+        {
+            "type": "group",
+            "name": "categories",
+            "zindex": 1,
+            "encode": {
+                "enter": {
+                    "x": {"signal": "1"},
+                    "y": {"signal": "1"},
+                    "width": {"value": 200},
+                    "height": {"value": 200}
+                }
+            },
+            "from": {
+                "facet": {
+                    "data": "data",
+                    "name": "facet",
+                    "groupby": ["Country"]
+                }
+            },
+            "marks": [
+                {
+                    "type": "line",
+                    "name": "category-line",
+                    "from": {"data": "facet"},
+                    "encode": {
+                        "enter": {
+                            "interpolate": {"value": "linear-closed"},
+                            "x": {"signal": "scale('radial', datum.Value) * cos(scale('angular', datum.Variable))"},
+                            "y": {"signal": "scale('radial', datum.Value) * sin(scale('angular', datum.Variable))"},
+                            "stroke": {"scale": "color", "field": "Country"},
+                            "strokeWidth": {"value": 4},
+                            "strokeOpacity": {"value": 0.6}
+                        },
+                        "opacity": {
+      "condition": {"param": "CountrySelect", "value": 1},
+      "value": 0.2
+    }
+                    }
+                },
+                {
+                    "type": "symbol",
+                    "from": {"data": "facet"},
+                    "name": "data-points",
+                    "zindex": 2,
+                    "encode": {
+                        "enter": {
+                            "x": {"signal": "scale('radial', datum.Value) * cos(scale('angular', datum.Variable))"},
+                            "y": {"signal": "scale('radial', datum.Value) * sin(scale('angular', datum.Variable))"},
+                            "fill": {"scale": "color", "field": "Country"},
+                            "size": {"value": 150},
+                            "strokeWidth": {"value": 3}
+                        },
+                        "update": {
+                            "tooltip": {
+                                "signal": "{'Country': datum.Country, 'Measure': datum.Variable, 'Percentage (%)': format(datum.Value, ',.0f')}"
+                            }
+                        }
+                        
+                    }
+                }
+            ]
+        },
+        {
+            "type": "rule",
+            "name": "radial-grid",
+            "from": {"data": "data"},
+            "zindex": 0,
+            "encode": {
+                "enter": {
+                    "x": {"value": 0},
+                    "y": {"value": 0},
+                    "x2": {"signal": "width/2 * cos(scale('angular', datum.Variable))"},
+                    "y2": {"signal": "height/2 * sin(scale('angular', datum.Variable))"},
+                    "stroke": {"value": "lightgray"},
+                    "strokeWidth": {"value": 2}
+                }
+            }
+        },
+        {
+            "type": "text",
+            "name": "key-label",
+            "from": {"data": "data"},
+            "zindex": 1,
+            "encode": {
+                "enter": {
+                    "x": {"signal": "datum.Variable == 'Active Cases' ? width/2 - 7: (width/2 + 5) * cos(scale('angular', datum.Variable))"},
+                    "y": {"signal": "datum.Variable == 'Recovered Cases' ? (height/2 + 5) * sin(scale('angular', datum.Variable)) - 10 : (height/2 + 5) * sin(scale('angular', datum.Variable))"},
+                    "text": {"field": "Variable"},
+                    "align": [
+                        {"test": "datum.Variable == 'Active Cases'", "value": "left"},
+                        {"test": "abs(scale('angular', datum.Variable)) > PI / 2", "value": "right"},
+                        {"value": "left"}
+                    ],
+                    "baseline": [
+                        {"test": "scale('angular', datum.Variable) > 0", "value": "top"},
+                        {"test": "scale('angular', datum.Variable) == 0", "value": "middle"},
+                        {"value": "bottom"}
+                    ],
+                    "fontWeight": {"value": "bold"},
+                    "font": {"value": "Cabin"},
+                    "fontSize": {"value": 15}
+                }
+            }
+        },
+        {
+            "type": "line",
+            "name": "outer-line",
+            "from": {"data": "radial-grid"},
+            "encode": {
+                "enter": {
+                    "interpolate": {"value": "linear-closed"},
+                    "x": {"field": "x2"},
+                    "y": {"field": "y2"},
+                    "stroke": {"value": "lightgray"},
+                    "strokeWidth": {"value": 2}
+                }
+            }
+        }
+        
+    ]
+
+}

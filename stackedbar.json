@@ -1,0 +1,154 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": "container",
+    "background": "#E9F7E9",
+    
+    "config": {
+        "font": "Cabin",
+        "legend": {
+            "labelFontSize": 13,
+            "titleFontSize": 15
+        },
+        "axis": {
+            "labelFontSize": 13,
+            "titleFontSize": 15
+        },
+        "style": {
+            "cell": {
+                "stroke": "transparent"
+            }
+        }
+    },
+    
+
+    "data": {
+        "url": "Charts/Covid-Live-stackedbar.csv"
+    },
+    "transform": [
+        {
+            "window": [
+                {
+                    "op": "sum",
+                    "field": "TotalVisitors",
+                    "as": "TotalVisitorsPerState"
+                }
+            ],
+            "groupby": [
+                "State"
+            ]
+        }
+        
+    ],
+    
+ 
+    "layer": [
+        {
+            
+            "mark": {
+                "type": "bar",
+                "cornerRadiusTopRight": 15,
+                "cornerRadiusTopLeft": 15
+            },
+            "encoding": {
+                "x": {
+                    "field": "State",
+                    "type": "nominal",
+                    "title": "State",
+                    "sort": [
+                        "NSW", "VIC", "QLD", "WA", "SA", "NT", "TAS", "ACT"
+                      ],
+                    "axis": {
+                        "labelAngle": 0,
+                        "grid": false
+                    }
+                },
+                "y": {
+                    "field": "TotalVisitors",
+                    "type": "quantitative",
+                    "title": "Total Visitors (Millions)",
+                    "axis": {
+                        "grid": false
+                    }
+                },
+                
+                "color": {
+                    "field": "Year",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": [
+                            "2008-09",
+                            "2018-19"
+                            
+                        ],
+                        "range": [
+                            
+                            "#8DD3C7",
+                            
+                            "#4294C7"
+                            
+                        ]
+                    },
+                    "title": "Year"
+                },
+                
+                "order": {
+                    "field": "SortOrder",
+                    "type": "quantitative"
+                },
+                
+                "tooltip": [
+                    {
+                        "field": "State",
+                        "type": "nominal",
+                        "title": "State"
+                    },
+                    {
+                        "field": "Year",
+                        "type": "nominal",
+                        "title": "Year"
+                    },
+                    {
+                        "field": "TotalVisitors",
+                        "type": "quantitative",
+                        "title": "Total Visitors",
+                        "format": ",.1f"
+                    }
+                ]
+                
+            }
+        },
+            
+        {
+            "mark": {
+                "type": "text",
+                "size": 13
+            },
+            "encoding": {
+                "x": {
+                    "field": "State",
+                    "type": "nominal",
+                    "sort": [
+                        "NSW", "VIC", "QLD", "WA", "SA", "NT", "TAS", "ACT"
+                      ]
+                },
+                "y": {
+                    "aggregate": "sum",
+                    "field": "TotalVisitors",
+                    "type": "quantitative"
+                },
+                "text": {
+                    "aggregate": "sum",
+                    "field": "TotalVisitors",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "value": "black"
+                },
+                "yOffset": {
+                    "value": -6.5
+                }
+            }
+        }
+    ]
+}
